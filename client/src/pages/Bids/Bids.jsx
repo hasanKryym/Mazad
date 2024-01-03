@@ -121,7 +121,11 @@ const Bids = () => {
       )}
 
       <div className="filter_bids-container">
-        <form className="filterForm" onSubmit={updateData}>
+        <form
+          className="filterForm"
+          onSubmit={updateData}
+          style={{ zIndex: "101" }}
+        >
           <button className="search-btn" type="submit">
             <svg
               width="17"
@@ -169,6 +173,7 @@ const Bids = () => {
         </button> */}
 
         <button
+          style={{ zIndex: "101" }}
           onClick={() => UpdateFiltersContainerClassName("slide-in-fwd-center")}
           className="classic-button"
         >
