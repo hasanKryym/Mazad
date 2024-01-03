@@ -17,15 +17,36 @@ export const login = async (email, password) => {
     password,
   };
   try {
-    // const response = await axios.post(`${server}/authentication/login`, data, {
-    //   // http2: false,
-    //   headers: {
-    //     Accept: "*/*",
-    //     // "Referrer-Policy": "no-referrer",
-    //     // Connection: "keep-alive",
-    //   },
-    // });
     const response = await axios.post(`${server}/authentication/login`, data);
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      return error.response.data;
+    }
+    console.error(
+      "Error:",
+      error.response ? error.response.data : error.message
+    );
+    return error.response ? error.response.data : error.message;
+  }
+};
+
+export const register = async (
+  username,
+  email,
+  password,
+  address,
+  phoneNumber
+) => {
+  const data = {
+    username,
+    email,
+    password,
+    address,
+    phoneNumber,
+  };
+  try {
+    const response = await axios.post(`${server}/authentication/signup`, data);
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -125,14 +146,14 @@ export const addBid = async (productId, bidderId, min_bid, end_time) => {
 //     password,
 //   };
 //   try {
-//     const response = await fetch(`${server}/authentication/login`, {
-//       method: "POST",
-//       headers: {
-//         ...config.headers,
-//         Accept: "application/json",
-//       },
-//       body: JSON.stringify(data),
-//     });
+// const response = await fetch(`${server}/authentication/login`, {
+//   method: "POST",
+//   headers: {
+//     ...config.headers,
+//     Accept: "application/json",
+//   },
+//   body: JSON.stringify(data),
+// });
 //     const result = await response.json();
 //     console.log(result);
 //     return result;

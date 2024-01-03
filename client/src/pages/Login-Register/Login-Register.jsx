@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./LoginRegister.css";
-import { login } from "../../data/api/postingData";
+import { login, register } from "../../data/api/postingData";
 import { NOTIFICATION_STATES } from "../../components/Notification/notificationStates";
 import Notification from "../../components/Notification/Notification";
 import { UserContext } from "../../context/User/UserContext";
@@ -71,10 +71,17 @@ const Login = () => {
         window.location.reload();
       }, 2000);
     } else {
-      setNotificationData({
-        message: response.message,
-        state: NOTIFICATION_STATES.ERROR,
-      });
+      if (response.message)
+        setNotificationData({
+          message: response.message,
+          state: NOTIFICATION_STATES.ERROR,
+        });
+      else
+        setNotificationData({
+          message:
+            "Error while communicating with the sever, please try again later",
+          state: NOTIFICATION_STATES.ERROR,
+        });
     }
   };
 
@@ -131,6 +138,10 @@ const Login = () => {
 };
 
 const Register = () => {
+  const navigate = useNavigate();
+  const { userData } = useContext(UserContext);
+  const [user, setUser] = userData;
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -146,14 +157,91 @@ const Register = () => {
       [name]: value,
     });
   };
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationData, setNotificationData] = useState({
+    state: "",
+    message: "",
+  });
 
-  const handleSubmit = (e) => {
+  const handleDismiss = () => {
+    setShowNotification(false);
+    setNotificationData({
+      state: "",
+      message: "",
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can add your registration logic here, e.g., send formData to the server
+    console.log(formData);
+    if (
+      !formData.username ||
+      !formData.email ||
+      !formData.password ||
+      !formData.address ||
+      !formData.phoneNumber
+    ) {
+      setNotificationData({
+        ...notificationData,
+        message: "please fill all the inputs",
+        state: NOTIFICATION_STATES.INFO,
+      });
+      setShowNotification(true);
+      return;
+    }
+
+    setNotificationData({
+      ...notificationData,
+      message: "You are being registered, please wait",
+      state: NOTIFICATION_STATES.LOAD,
+    });
+    setShowNotification(true);
+
+    const response = await register(
+      formData.username,
+      formData.email,
+      formData.password,
+      formData.address,
+      formData.phoneNumber
+    );
+
+    console.log(response);
+    if (response.success) {
+      setNotificationData({
+        message: response.message,
+        state: NOTIFICATION_STATES.SUCCESS,
+      });
+      localStorage.setItem("token", response.token);
+      localStorage.setItem("user", JSON.stringify(response.user));
+      setUser((prevUser) => ({ ...prevUser, status: { isLoggedIn: true } }));
+      setTimeout(() => {
+        navigate("/");
+        window.location.reload();
+      }, 2000);
+    } else {
+      if (response.message)
+        setNotificationData({
+          message: response.message,
+          state: NOTIFICATION_STATES.ERROR,
+        });
+      else
+        setNotificationData({
+          message:
+            "Error while communicating with the sever, please try again later",
+          state: NOTIFICATION_STATES.ERROR,
+        });
+    }
   };
 
   return (
     <div className="middle-container">
+      {showNotification && (
+        <Notification
+          message={notificationData.message}
+          state={notificationData.state}
+          onDismiss={handleDismiss}
+        />
+      )}
       <div className="form-container">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
