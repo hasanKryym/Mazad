@@ -17,10 +17,7 @@ export const login = async (email, password) => {
     password,
   };
   try {
-    const response = await axios.post(`${server}/authentication/login`, data, {
-      withCredentials: true,
-    });
-    // const response = await axios.post(`${server}/authentication/login`, data);
+    const response = await axios.post(`${server}/authentication/login`, data);
     return response.data;
   } catch (error) {
     if (error.response) {
