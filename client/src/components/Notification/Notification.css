@@ -1,0 +1,93 @@
+.notification_container {
+  position: fixed;
+  top: 50px;
+  right: 50%;
+  transform: translateX(50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.notification_overlay {
+  position: fixed;
+  top: 0;
+  right: 50%;
+  gap: 10px;
+  transform: translateX(50%);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification_container.warn {
+  /* Styles for the "warn" state */
+  background-color: #ffcc00;
+}
+
+/* 
+.notification_container.load {
+  background-color: #3498db;
+  background-color: rgba(52, 152, 219, 0.8);
+  color: #fff;
+} */
+
+.notification_overlay.load {
+  background-color: rgba(52, 152, 219, 0.8);
+  color: #fff;
+}
+
+.notification_container.success {
+  /* Styles for the "success" state */
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.notification_container.error {
+  /* Styles for the "error" state */
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.notification_container.info {
+  /* Styles for the "info" state */
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* .notification_container .loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+} */
+
+.notification_overlay .loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

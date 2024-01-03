@@ -1,0 +1,19 @@
+.user-product-section {
+  display: flex;
+  padding: 2rem 4rem;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 110;
+}
+.add_product {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.add_product-btn {
+  padding: 1rem 3rem;
+  border-radius: 6px;
+}

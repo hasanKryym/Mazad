@@ -1,0 +1,27 @@
+/* Profile.css */
+
+.profile-section {
+  margin: 20px;
+}
+
+.profile-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.profile-info div {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-profile-section {
+  margin: 20px;
+}
+.profile_btns-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}

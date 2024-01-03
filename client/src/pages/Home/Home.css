@@ -1,0 +1,91 @@
+/* Home.css */
+
+.home-container {
+}
+
+/* Home.css */
+
+/* Home.css */
+
+.home-container .top-container {
+  background-image: url("../../assets/images/homePagebg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff; /* Choose a contrasting color for text against the dark background */
+  text-align: center;
+}
+
+.home-container .welcome-message {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.home-container .sub-message {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.home-container .search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.home-container .search-input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  border-radius: 5px;
+}
+
+.home-container .aboutUs-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  padding: 4rem;
+  flex-wrap: wrap;
+}
+
+/* Additional styling for the container content if needed */
+
+.logo {
+  width: 500px;
+}
+/* 
+.home-section {
+  margin-bottom: 40px;
+}
+
+.home-section h2 {
+  color: var(--primaryColor);
+  margin-bottom: 10px;
+}
+
+.home-section p {
+  color: var(--textColor);
+}
+
+.home-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.home-section li {
+  color: var(--textColor);
+  margin-bottom: 5px;
+} */
+
+/* You can add more styles based on your design preferences */

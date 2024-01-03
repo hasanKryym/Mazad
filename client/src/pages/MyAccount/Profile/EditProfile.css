@@ -1,0 +1,34 @@
+/* EditProfileForm.css */
+
+.edit_profile-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.edit_profile-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.edit_profile-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+/* 
+button {
+  background-color: var(--primaryColor);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--secondaryColor);
+} */

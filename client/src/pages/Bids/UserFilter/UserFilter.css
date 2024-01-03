@@ -1,0 +1,18 @@
+/* BidsFilter.css */
+
+.bids-filter-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter-label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.filter-select {
+  padding: 8px;
+  font-size: 16px;
+}

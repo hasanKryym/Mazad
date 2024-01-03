@@ -1,0 +1,84 @@
+/* Navbar.css */
+
+nav {
+  background-color: var(--primaryColor);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+/* .navbar-logo img {
+  width: 60px;
+  object-fit: cover;
+} */
+
+.navbar-links,
+.navbar-account-links {
+  display: flex;
+  gap: 20px;
+  font-weight: bold;
+}
+
+.navbar-links {
+  justify-content: center;
+  flex-grow: 1;
+  z-index: 1000;
+}
+
+.navbar-account-links {
+  justify-content: flex-end;
+}
+
+.navbar-link,
+.navbar-account-link {
+  text-transform: capitalize;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-toggle {
+  display: none;
+}
+
+/* Media Query for Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+  .navbar-links,
+  .navbar-account-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 53px;
+    left: 0;
+    background-color: var(--primaryColor);
+    width: 100%;
+  }
+
+  .navbar-link,
+  .navbar-account-link {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar-links.show,
+  .navbar-account-links.show {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: block;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}

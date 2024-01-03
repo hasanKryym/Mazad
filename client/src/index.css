@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  --primaryColor: #3498db;
+  --secondaryColor: #ff6f61;
+}
+
+.center-div {
+  padding-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* inputStyles.css */
+
+/* Input Container */
+.input-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* Input Field */
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--primaryColor);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--secondaryColor);
+}
+
+/* Input Label */
+.input-label {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 0.8rem;
+  color: var(--primaryColor);
+  transition: 0.2s;
+}
+
+/* Input Field Focus */
+.input-field:focus + .input-label {
+  top: -20px;
+  font-size: 0.7rem;
+  color: var(--secondaryColor);
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+/* buttonStyles.css */
+
+/* Primary Button */
+.primary-button {
+  background-color: var(--primaryColor);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-button:hover {
+  background-color: var(--secondaryColor);
+}
+
+/* Secondary Button */
+.secondary-button {
+  background-color: var(--secondaryColor);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.secondary-button:hover {
+  background-color: var(--primaryColor);
+}
+
+.classic-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.classic-button:hover {
+  background-color: #267bb8;
+}
+
+.close-button {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-button:hover {
+  background-color: #c0392b;
+}
+
+.logout-button {
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logout-button:hover {
+  background-color: #e74c3c;
+}
+
+/* scrollbar style */
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* For Firefox */
+/* Note: Firefox supports scrollbar-color, and scrollbar-width starting from version 64 */
+* {
+  scrollbar-color: #888 #f1f1f1;
+  scrollbar-width: thin;
+}
+
+/* For Microsoft Edge */
+*::-ms-scrollbar {
+  width: 12px;
+}
+
+*::-ms-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #f1f1f1;
+}
+
+*::-ms-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* CARD */
+.card {
+  width: 320px;
+  /* height: 350px; */
+  padding: 0.8em;
+  background: #f5f5f5;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.card.product_container {
+  height: 350px;
+}
+
+.card.product_container.from-add_bid {
+  height: 380px;
+}
+
+/* ProductDetails */
+
+.card.product-details {
+  position: fixed;
+  width: 100vw;
+  max-width: 1000px;
+  height: 100vh;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  overflow: auto;
+}
+.card.product-details .card-img img {
+  width: 100%;
+  height: auto;
+}
+/*  */
+
+.card .card-img {
+  /* background-color: #ffcaa6; */
+  /* height: 40%; */
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: 0.3s ease;
+}
+.card .card-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card .card-info {
+  padding-top: 10%;
+}
+
+.card .cart-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.card .card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+/*Text*/
+.card .text-title {
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.card .text-body {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  font-size: 0.9em;
+  padding-bottom: 4px;
+}
+
+.card .text-body.full-text {
+  -webkit-line-clamp: unset;
+}
+
+/*Button*/
+.card .card-button {
+  border: 1px solid #252525;
+  display: flex;
+  padding: 0.5em;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 0.3s ease-in-out;
+  font-size: 24px;
+}
+
+/*Hover*/
+.card .card-img:hover {
+  cursor: pointer;
+  transform: translateY(-5%);
+  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px,
+    rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+}
+.card.product-details .card-img:hover {
+  cursor: default;
+  transform: translateY(0%);
+  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px;
+}
+
+.card .card-button:hover {
+  border: 1px solid #ffcaa6;
+  background-color: #ffcaa6;
+}
